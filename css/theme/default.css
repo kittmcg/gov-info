@@ -46,6 +46,10 @@ div.references {
   margin-right:auto;
 }
 
+p.reference {
+  font-size: 15px;
+}
+
 /*********************************************
  * HEADERS
  *********************************************/

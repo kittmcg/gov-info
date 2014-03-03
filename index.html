@@ -22,9 +22,15 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			if( window.location.search.match( /print-pdf/gi ) ) {
+ +				var link = document.createElement( 'link' );
+ +				link.rel = 'stylesheet';
+ +				link.type = 'text/css';
+ +				link.href = 'css/print/pdf.css';
+ +				document.getElementsByTagName( 'head' )[0].appendChild( link );
+ +			}
 		</script>
 
 		<!--[if lt IE 9]>
@@ -69,11 +75,13 @@
 						<a class="image" href="http://www.opengovpartnership.org/country/canada" target="_blank">
 							<img src="images/OGP.png" style="border-style: none" alt="Canada's OGP commitments">
 						</a>
+						<p class="reference"><a href="http://www.opengovpartnership.org/country/canada">http://www.opengovpartnership.org/country/canada</a></p>
 					</section>
 					<section>
 						<a class="image" href="http://www.opengovpartnership.org/" target="_blank">
 							<img src="images/OGP-map.png" style="border-style: none" alt="Countries participating in OGP">
 						</a>
+						<p class="reference"><a href="http://www.opengovpartnership.org/">http://www.opengovpartnership.org/</a></p>
 					</section>
 					<section>
 						<h2>Why does this matter to us?</h2>
@@ -150,10 +158,11 @@
 						<p>- University of New Hampshire</p>
 					</section>
 					<section>
-						<h3>La compreh&#233;hension de</br> l'utilisation des donn&#233;es</h3>
+						<h3>La compr&#233;hension de</br> l'utilisation des donn&#233;es</h3>
 						<a class="image" href="http://biblio.uottawa.ca/html/Page?node=news&lang=fr" target="_blank">
 							<img src="images/hackfest.jpg" style="border-style: none" alt="HackUOBiblio">
 						</a>
+						<p class="reference"><a href="http://biblio.uottawa.ca/html/Page?node=news&lang=fr">#HackUOBiblio</a></p>
 					</section>
 					<section>
 						<h3>Acc&egrave;s et interpr&#233;tation</h3>
@@ -181,7 +190,7 @@
 					</section>
 					<section> 
 						<h2>Le gouvernement ouvert ...</h2>
-						<p>...transcende les disciplines</p>
+						<p>... touche un ensemble de disciplines</p>
 					</section>
 				</section>
 
